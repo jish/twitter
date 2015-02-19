@@ -20,4 +20,17 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
 
         return Static.instance
     }
+
+    func requestTokenWithCallback(callbackUrl: String, block: (BDBOAuth1Credential!, NSError?) -> Void) {
+        requestSerializer.removeAccessToken()
+
+        fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: callbackUrl)!, scope: nil,
+            success: { (requestToken: BDBOAuth1Credential!) in
+                block(requestToken, nil)
+            },
+            failure: { (error: NSError!) -> Void in
+                block(nil, error)
+            }
+        )
+    }
 }
