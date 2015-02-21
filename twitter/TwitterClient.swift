@@ -33,4 +33,18 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             }
         )
     }
+
+    func fetchAccessTokenWithQueryString(queryString: String, block: (BDBOAuth1Credential!, NSError?) -> Void) {
+        let token = BDBOAuth1Credential(queryString: queryString)
+
+        fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: token,
+            success: { (accessToken: BDBOAuth1Credential!) -> Void in
+                self.requestSerializer.saveAccessToken(accessToken)
+                block(accessToken, nil)
+            }
+        ) { (error: NSError!) -> Void in
+            block(nil, error)
+        }
+
+    }
 }
