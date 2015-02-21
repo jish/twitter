@@ -41,37 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // This will be called upon a Twitter OAuth callback
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        TwitterClient.sharedInstance.fetchAccessTokenWithQueryString(url.query!) { (accessToken, error) in
-            if error == nil {
-                println("Got the access token")
-                
-                TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil,
-                    success: { (request: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                        println("request succeeded")
-                        let user = User(dict: response as NSDictionary)
-                        println(user.name)
-                        println(user)
-                    }, failure: { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                        println("Error fetching user credentials \(error)")
-                    }
-                )
-
-                TwitterClient.sharedInstance.fetchHomeTimeline() { (tweets, error) in
-                    if error == nil {
-                        println("Received \(tweets.count) tweets from home timeline")
-                        for tweet in tweets {
-                            println("\(tweet.createdAt) \(tweet.user.name): (@\(tweet.user.screenName)) \(tweet.text)")
-                        }
-                    } else {
-                        println("Error retreiving home timeline: \(error)")
-                    }
-                }
-            } else {
-                println("Error retreiving access token: \(error)")
-            }
-        }
-
+        TwitterClient.sharedInstance.handleTwitterCallback(url)
         return true
     }
 

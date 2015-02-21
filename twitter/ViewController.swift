@@ -23,16 +23,13 @@ class ViewController: UIViewController {
     @IBAction func onLogin(sender: UIButton) {
         println("login requested")
 
-        TwitterClient.sharedInstance.requestTokenWithCallback("cptwitterdemo://oauth") { (requestToken, error) in
-            if error != nil {
-                println("Error: \(error)")
-                return
+        TwitterClient.sharedInstance.login() { (user, error) in
+            if let u = user {
+                println("Logged in user: \(u.name) (@\(u.screenName))")
+                self.performSegueWithIdentifier("timeline-segue", sender: self)
+            } else {
+                println("Error logging in: \(error)")
             }
-
-            println("Got the request token: \(requestToken)")
-
-            let authUrl = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
-            UIApplication.sharedApplication().openURL(authUrl)
         }
     }
 
