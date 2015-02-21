@@ -49,20 +49,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil,
                     success: { (request: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                         println("request succeeded")
-                        println(response)
+                        let user = User(dict: response as NSDictionary)
+                        println(user.name)
+                        println(user)
                     }, failure: { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
                         println("Error fetching user credentials \(error)")
                     }
                 )
 
-                TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil,
-                    success: { (request: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                        println("request succeeded")
-                        println(response)
-                    }, failure: { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                        println("Error fetching home timeline \(error)")
+                TwitterClient.sharedInstance.fetchHomeTimeline() { (tweets, error) in
+                    if error == nil {
+                        println("Received \(tweets.count) tweets from home timeline")
+                        for tweet in tweets {
+                            println("\(tweet.createdAt) \(tweet.user.name): (@\(tweet.user.screenName)) \(tweet.text)")
+                        }
+                    } else {
+                        println("Error retreiving home timeline: \(error)")
                     }
-                )
+                }
             } else {
                 println("Error retreiving access token: \(error)")
             }
