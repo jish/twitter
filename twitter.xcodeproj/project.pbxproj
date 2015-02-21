@@ -87,14 +87,11 @@
 		036A270F1A9590A900A88E98 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				036A27161A9590A900A88E98 /* Main.storyboard */,
 				036A27121A9590A900A88E98 /* AppDelegate.swift */,
 				036A27141A9590A900A88E98 /* ViewController.swift */,
-				036A27161A9590A900A88E98 /* Main.storyboard */,
-				036A27191A9590A900A88E98 /* Images.xcassets */,
-				036A271B1A9590A900A88E98 /* LaunchScreen.xib */,
-				036A27101A9590A900A88E98 /* Supporting Files */,
-				0304F8F41A959A6600933E31 /* twitter-Bridging-Header.h */,
 				0304F8F91A959BE500933E31 /* TwitterClient.swift */,
+				036A27101A9590A900A88E98 /* Supporting Files */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -102,6 +99,9 @@
 		036A27101A9590A900A88E98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				036A27191A9590A900A88E98 /* Images.xcassets */,
+				036A271B1A9590A900A88E98 /* LaunchScreen.xib */,
+				0304F8F41A959A6600933E31 /* twitter-Bridging-Header.h */,
 				036A27111A9590A900A88E98 /* Info.plist */,
 			);
 			name = "Supporting Files";
