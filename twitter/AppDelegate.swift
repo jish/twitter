@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userLogoutEvent, object: nil)
+
+        if let user = User.currentUser {
+            println("Found a logged in user: \(user.name)")
+            setRootViewController("timeline-controller")
+        }
+
         return true
     }
 
@@ -47,5 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func userDidLogout() {
+        println("AppDelegatge#userDidLogout setting root view controller to login-controller")
+        setRootViewController("login-controller")
+    }
+
+    func setRootViewController(controllerIdentifier: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(controllerIdentifier) as UIViewController
+
+        window?.rootViewController = viewController
+    }
 }
 

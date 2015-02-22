@@ -58,10 +58,15 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
 
                 TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil,
                     success: { (request: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                        println("Fetching user succeeded, user login success.")
-                        let user = User(dict: response as NSDictionary)
-                        println("Logged in user: \(user.name) @\(user.screenName)")
-                        self.loginCallback!(user: user, error: nil)
+                        println("Fetching user succeeded, Twitter authentication success.")
+                        let dict = response as NSDictionary
+                        User.storeCurrentUserData(dict)
+                        if let user = User.currentUser {
+                            println("Logged in user: \(user.name) @\(user.screenName)")
+                            self.loginCallback!(user: user, error: nil)
+                        } else {
+                            self.loginCallback!(user: nil, error: NSError())
+                        }
                     }, failure: { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
                         println("Error fetching user credentials \(error)")
                         self.loginCallback!(user: nil, error: error)
@@ -101,5 +106,9 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         }, failure: { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
             block(nil, error)
         })
+    }
+
+    func logout() {
+        requestSerializer.removeAccessToken()
     }
 }

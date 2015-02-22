@@ -30,6 +30,10 @@ class TimelineController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLogout(sender: UIButton) {
+        println("Logout requested")
+        User.logout()
+    }
 
     /*
     // MARK: - Navigation
