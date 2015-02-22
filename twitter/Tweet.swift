@@ -36,4 +36,16 @@ class Tweet: NSObject {
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         return formatter.dateFromString(createdAtString)!
     }
+
+    var authorName: String {
+        return user.name
+    }
+
+    var authorHandle: String {
+        return user.screenName
+    }
+
+    var authorPhotoUrl: NSURL {
+        return user.profileImageUrl
+    }
 }

@@ -17,6 +17,7 @@
 		0373A0E41A992515005E02CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373A0E31A992515005E02CE /* User.swift */; };
 		0373A0E61A992522005E02CE /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373A0E51A992522005E02CE /* Tweet.swift */; };
 		0373A0E81A995144005E02CE /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373A0E71A995144005E02CE /* TimelineController.swift */; };
+		03B206081A9A7F8900884289 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B206071A9A7F8900884289 /* TweetCell.swift */; };
 		31BA562B3A64EFCC370889D9 /* libPods-twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F36C85FBD2B68109970D78 /* libPods-twitter.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		0373A0E31A992515005E02CE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0373A0E51A992522005E02CE /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		0373A0E71A995144005E02CE /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
+		03B206071A9A7F8900884289 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		2E468014DF4A660DCA8D016C /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		43F36C85FBD2B68109970D78 /* libPods-twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		918E5AAC93C396C06126CACD /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				036A27141A9590A900A88E98 /* ViewController.swift */,
 				0373A0E71A995144005E02CE /* TimelineController.swift */,
 				0304F8F91A959BE500933E31 /* TwitterClient.swift */,
+				03B206071A9A7F8900884289 /* TweetCell.swift */,
 				036A27101A9590A900A88E98 /* Supporting Files */,
 			);
 			path = twitter;
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0373A0E81A995144005E02CE /* TimelineController.swift in Sources */,
+				03B206081A9A7F8900884289 /* TweetCell.swift in Sources */,
 				0373A0E41A992515005E02CE /* User.swift in Sources */,
 				0373A0E61A992522005E02CE /* Tweet.swift in Sources */,
 				036A27151A9590A900A88E98 /* ViewController.swift in Sources */,

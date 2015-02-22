@@ -96,7 +96,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func fetchHomeTimeline(block: ([Tweet]?, NSError?) -> Void) {
         GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (request, response) -> Void in
             println("Fetched home timeline")
-//            println(response)
+            println(response)
 
             let tweets = map(response as Array) { (tweet: NSDictionary) -> Tweet in
                 return Tweet(dict: tweet)

@@ -15,20 +15,20 @@ let userLogoutEvent = "user_logout_event"
 class User: NSObject {
     let name: String
     let screenName: String
-    let profileImage: NSURL
+    let profileImageUrl: NSURL
     let bio: String
 
     init(name: String, screenName: String, profileImage: String, bio: String) {
         self.name = name
         self.screenName = screenName
-        self.profileImage = NSURL(string: profileImage)!
+        self.profileImageUrl = NSURL(string: profileImage)!
         self.bio = bio
     }
 
     init(dict: NSDictionary) {
         name = dict["name"] as String
         screenName = dict["screen_name"] as String
-        profileImage = NSURL(string: dict["profile_image_url_https"] as String)!
+        profileImageUrl = NSURL(string: dict["profile_image_url_https"] as String)!
         bio = dict["description"] as String
     }
 
