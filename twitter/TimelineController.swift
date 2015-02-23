@@ -11,6 +11,7 @@ import UIKit
 class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tweets: [Tweet] = []
+    var refreshControl: UIRefreshControl!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -22,25 +23,18 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
 
-        TwitterClient.sharedInstance.fetchHomeTimeline() { (tweets, error) in
-            if let t = tweets {
-                println("Received \(t.count) tweets from home timeline")
-                for tweet in t {
-                    println("\(tweet.createdAt) \(tweet.user.name): (@\(tweet.user.screenName)) \(tweet.text)")
-                }
-                self.tweets = t
-                self.tableView.reloadData()
-            } else {
-                println("Error retreiving home timeline: \(error)")
-            }
-        }
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh:", forControlEvents: .ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+
+        fetchHomeTimeline()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func onLogout(sender: UIButton) {
         println("Logout requested")
         User.logout()
@@ -57,6 +51,25 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
+    }
+
+    func onRefresh(sender: AnyObject) {
+        fetchHomeTimeline()
+    }
+
+    func fetchHomeTimeline() {
+        TwitterClient.sharedInstance.fetchHomeTimeline() { (tweets, error) in
+            if let t = tweets {
+                println("Received \(t.count) tweets from home timeline")
+
+                self.refreshControl.endRefreshing()
+
+                self.tweets = t
+                self.tableView.reloadData()
+            } else {
+                println("Error retreiving home timeline: \(error)")
+            }
+        }
     }
 
     /*
