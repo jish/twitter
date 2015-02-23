@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -229,7 +228,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I bet in the future they'll make a &quot;Wolf of Silicon Valley&quot; movie." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXw-D2-mYn">
-                                <rect key="frame" x="80" y="93" width="216" height="36"/>
+                                <rect key="frame" x="80" y="93" width="232" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -247,21 +246,54 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8G-Mf-gIj">
+                                <rect key="frame" x="248" y="137" width="16" height="22"/>
+                                <state key="normal" image="favorite.png">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="onFavoritePressed:" destination="flO-wN-Mu2" eventType="touchUpInside" id="UDa-Rn-Sh7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0F-1Y-xtN">
+                                <rect key="frame" x="197" y="137" width="19" height="22"/>
+                                <state key="normal" image="retweet.png">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRetweetPressed:" destination="flO-wN-Mu2" eventType="touchUpInside" id="Jf6-Nb-nbb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tR6-sz-we7">
+                                <rect key="frame" x="296" y="137" width="16" height="22"/>
+                                <state key="normal" image="reply.png">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReplyPressed:" destination="flO-wN-Mu2" eventType="touchUpInside" id="mh6-2k-JNm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xay-ie-TtX" firstAttribute="top" secondItem="Od6-Kk-gyf" secondAttribute="bottom" constant="8" id="3cv-N8-GhI"/>
+                            <constraint firstItem="ovt-1i-l2r" firstAttribute="trailing" secondItem="sXw-D2-mYn" secondAttribute="trailing" id="Djj-Y2-QxG"/>
                             <constraint firstItem="Bud-l2-ryD" firstAttribute="leading" secondItem="xay-ie-TtX" secondAttribute="trailing" constant="8" id="Dsk-fU-XVz"/>
                             <constraint firstItem="xay-ie-TtX" firstAttribute="leading" secondItem="fqm-0g-ycu" secondAttribute="leading" constant="8" id="F0Y-Kn-5G5"/>
                             <constraint firstItem="ovt-1i-l2r" firstAttribute="leading" secondItem="IEz-BA-d5Q" secondAttribute="trailing" constant="8" id="HvG-ad-Yre"/>
+                            <constraint firstItem="c0F-1Y-xtN" firstAttribute="top" secondItem="sXw-D2-mYn" secondAttribute="bottom" constant="8" id="JKp-bi-QRv"/>
                             <constraint firstAttribute="trailing" secondItem="ovt-1i-l2r" secondAttribute="trailing" constant="8" id="O1s-lp-ZOa"/>
+                            <constraint firstItem="tR6-sz-we7" firstAttribute="leading" secondItem="S8G-Mf-gIj" secondAttribute="trailing" constant="32" id="UrR-7v-pCC"/>
                             <constraint firstItem="sXw-D2-mYn" firstAttribute="top" secondItem="Bud-l2-ryD" secondAttribute="bottom" id="XMf-Rl-6pz"/>
                             <constraint firstItem="IEz-BA-d5Q" firstAttribute="centerY" secondItem="ovt-1i-l2r" secondAttribute="centerY" id="aUc-LV-J0w"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sXw-D2-mYn" secondAttribute="trailing" constant="8" id="bKK-ht-u07"/>
+                            <constraint firstItem="S8G-Mf-gIj" firstAttribute="leading" secondItem="c0F-1Y-xtN" secondAttribute="trailing" constant="32" id="cA0-99-3hj"/>
                             <constraint firstItem="Bud-l2-ryD" firstAttribute="leading" secondItem="sXw-D2-mYn" secondAttribute="leading" id="cE9-6w-Vfm"/>
                             <constraint firstItem="ovt-1i-l2r" firstAttribute="top" secondItem="Od6-Kk-gyf" secondAttribute="bottom" constant="8" id="dKU-VR-zAm"/>
                             <constraint firstItem="Bud-l2-ryD" firstAttribute="top" secondItem="xay-ie-TtX" secondAttribute="top" id="eQt-io-MX5"/>
+                            <constraint firstItem="sXw-D2-mYn" firstAttribute="trailing" secondItem="tR6-sz-we7" secondAttribute="trailing" id="ivH-P6-yH6"/>
+                            <constraint firstItem="S8G-Mf-gIj" firstAttribute="top" secondItem="c0F-1Y-xtN" secondAttribute="top" id="lRl-Vo-30l"/>
                             <constraint firstItem="IEz-BA-d5Q" firstAttribute="leading" secondItem="Bud-l2-ryD" secondAttribute="trailing" constant="8" id="m0t-n6-vhq"/>
+                            <constraint firstItem="S8G-Mf-gIj" firstAttribute="top" secondItem="tR6-sz-we7" secondAttribute="top" id="sqm-UN-rjQ"/>
                             <constraint firstItem="Bud-l2-ryD" firstAttribute="centerY" secondItem="IEz-BA-d5Q" secondAttribute="centerY" id="uJr-Fe-xwl"/>
                         </constraints>
                     </view>
@@ -298,6 +330,11 @@
             <point key="canvasLocation" x="625" y="202"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favorite.png" width="16" height="16"/>
+        <image name="reply.png" width="16" height="16"/>
+        <image name="retweet.png" width="19" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

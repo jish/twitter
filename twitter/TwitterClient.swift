@@ -96,7 +96,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func fetchHomeTimeline(block: ([Tweet]?, NSError?) -> Void) {
         GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (request, response) -> Void in
             println("Fetched home timeline")
-//            println(response)
+            println(response)
 
             let tweets = map(response as Array) { (tweet: NSDictionary) -> Tweet in
                 return Tweet(dict: tweet)
@@ -114,6 +114,15 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         ]
 
         POST("1.1/statuses/update.json", parameters: dict, success: { (request, response) in
+            block(response, nil)
+        }, failure: { (request, error) in
+            block(nil, error)
+        })
+    }
+
+    func retweet(id: String, block: (AnyObject?, NSError?) -> Void) {
+        let path = "1.1/statuses/retweet/\(id).json"
+        POST(path, parameters: nil, success: { (request, response) in
             block(response, nil)
         }, failure: { (request, error) in
             block(nil, error)

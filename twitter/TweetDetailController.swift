@@ -43,6 +43,25 @@ class TweetDetailController: UIViewController {
         timeAgo.text = presenter.timeAgo()
     }
 
+    @IBAction func onRetweetPressed(sender: AnyObject) {
+        println("Retweet pressed \(tweet.id)")
+        TwitterClient.sharedInstance.retweet(tweet.id) { (response, error) in
+            if let r = response as? NSDictionary {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                println("Error retweeting \(self.tweet.id) \(error)")
+            }
+        }
+    }
+
+    @IBAction func onFavoritePressed(sender: AnyObject) {
+        println("Favorite pressed \(tweet.id)")
+    }
+
+    @IBAction func onReplyPressed(sender: AnyObject) {
+        println("Reply pressed \(tweet.id)")
+    }
+
     /*
     // MARK: - Navigation
 

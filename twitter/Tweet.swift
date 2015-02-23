@@ -9,21 +9,15 @@
 import UIKit
 
 class Tweet: NSObject {
+    let id: String
     let user: User
     let text: String
     let createdAtString: String
     let retweetCount: Int
     let favoritedCount: Int
 
-    init(user: User, text: String, createdAtString: String) {
-        self.user = user
-        self.text = text
-        self.createdAtString = createdAtString
-        self.retweetCount = 0
-        self.favoritedCount = 0
-    }
-
     init(dict: NSDictionary) {
+        id = dict["id_str"] as String
         user = User(dict: dict["user"] as NSDictionary)
         text = dict["text"] as String
         createdAtString = dict["created_at"] as String
