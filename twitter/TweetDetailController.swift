@@ -56,6 +56,13 @@ class TweetDetailController: UIViewController {
 
     @IBAction func onFavoritePressed(sender: AnyObject) {
         println("Favorite pressed \(tweet.id)")
+        TwitterClient.sharedInstance.favorite(tweet.id) { (response, error) in
+            if let r = response as? NSDictionary {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                println("Error favoriting \(self.tweet.id) \(error)")
+            }
+        }
     }
 
     @IBAction func onReplyPressed(sender: AnyObject) {
