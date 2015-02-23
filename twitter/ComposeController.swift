@@ -10,6 +10,8 @@ import UIKit
 
 class ComposeController: UIViewController {
 
+    var replyTo: String?
+
     @IBOutlet weak var composeTextView: UITextView!
 
     override func viewDidLoad() {
@@ -21,6 +23,13 @@ class ComposeController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        if let handle = replyTo {
+            composeTextView.text = "@\(handle) "
+            replyTo = nil
+        }
     }
 
     @IBAction func onSubmitTweet(sender: AnyObject) {

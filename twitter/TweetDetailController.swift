@@ -65,18 +65,14 @@ class TweetDetailController: UIViewController {
         }
     }
 
-    @IBAction func onReplyPressed(sender: AnyObject) {
-        println("Reply pressed \(tweet.id)")
-    }
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "reply-segue" {
+            let vc = segue.destinationViewController as ComposeController
+            vc.replyTo = tweet.authorHandle
+        }
     }
-    */
 
 }

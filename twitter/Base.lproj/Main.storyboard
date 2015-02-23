@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nma-0h-St5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="-110"/>
+            <point key="canvasLocation" x="1992" y="-100"/>
         </scene>
         <!--Tweet Detail Controller-->
         <scene sceneID="BaI-9N-d3P">
@@ -270,7 +270,7 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="onReplyPressed:" destination="flO-wN-Mu2" eventType="touchUpInside" id="mh6-2k-JNm"/>
+                                    <segue destination="CT0-YW-rJG" kind="push" identifier="reply-segue" id="TBx-Ik-MqY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8b-Qr-NZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="542"/>
+            <point key="canvasLocation" x="1522" y="584"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qKg-A0-oEn">
@@ -340,4 +340,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="TBx-Ik-MqY"/>
+    </inferredMetricsTieBreakers>
 </document>
