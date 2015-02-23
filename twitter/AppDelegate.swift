@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if let user = User.currentUser {
             println("Found a logged in user: \(user.name)")
-            setRootViewController("timeline-controller")
+            setRootViewController("navigation-controller")
         }
 
         return true

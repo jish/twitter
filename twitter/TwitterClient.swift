@@ -108,6 +108,18 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         })
     }
 
+    func submitTweet(text: String, block: (AnyObject?, NSError?) -> Void) {
+        let dict = [
+            "status": text
+        ]
+
+        POST("1.1/statuses/update.json", parameters: dict, success: { (request, response) in
+            block(response, nil)
+        }, failure: { (request, error) in
+            block(nil, error)
+        })
+    }
+
     func logout() {
         requestSerializer.removeAccessToken()
     }
