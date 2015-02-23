@@ -18,6 +18,8 @@
 		0373A0E61A992522005E02CE /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373A0E51A992522005E02CE /* Tweet.swift */; };
 		0373A0E81A995144005E02CE /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373A0E71A995144005E02CE /* TimelineController.swift */; };
 		03950E861A9AC88600AAEC70 /* ComposeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03950E851A9AC88600AAEC70 /* ComposeController.swift */; };
+		03950E881A9AD60B00AAEC70 /* TweetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03950E871A9AD60B00AAEC70 /* TweetDetailController.swift */; };
+		03950E8A1A9ADDDC00AAEC70 /* TweetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03950E891A9ADDDC00AAEC70 /* TweetPresenter.swift */; };
 		03B206081A9A7F8900884289 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B206071A9A7F8900884289 /* TweetCell.swift */; };
 		31BA562B3A64EFCC370889D9 /* libPods-twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F36C85FBD2B68109970D78 /* libPods-twitter.a */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		0373A0E51A992522005E02CE /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		0373A0E71A995144005E02CE /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		03950E851A9AC88600AAEC70 /* ComposeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeController.swift; sourceTree = "<group>"; };
+		03950E871A9AD60B00AAEC70 /* TweetDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailController.swift; sourceTree = "<group>"; };
+		03950E891A9ADDDC00AAEC70 /* TweetPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetPresenter.swift; sourceTree = "<group>"; };
 		03B206071A9A7F8900884289 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		2E468014DF4A660DCA8D016C /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		43F36C85FBD2B68109970D78 /* libPods-twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,7 @@
 			children = (
 				0373A0E31A992515005E02CE /* User.swift */,
 				0373A0E51A992522005E02CE /* Tweet.swift */,
+				03950E891A9ADDDC00AAEC70 /* TweetPresenter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				036A27141A9590A900A88E98 /* ViewController.swift */,
 				0373A0E71A995144005E02CE /* TimelineController.swift */,
 				03950E851A9AC88600AAEC70 /* ComposeController.swift */,
+				03950E871A9AD60B00AAEC70 /* TweetDetailController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -309,11 +315,13 @@
 			files = (
 				0373A0E81A995144005E02CE /* TimelineController.swift in Sources */,
 				03B206081A9A7F8900884289 /* TweetCell.swift in Sources */,
+				03950E881A9AD60B00AAEC70 /* TweetDetailController.swift in Sources */,
 				0373A0E41A992515005E02CE /* User.swift in Sources */,
 				0373A0E61A992522005E02CE /* Tweet.swift in Sources */,
 				03950E861A9AC88600AAEC70 /* ComposeController.swift in Sources */,
 				036A27151A9590A900A88E98 /* ViewController.swift in Sources */,
 				0304F8FA1A959BE500933E31 /* TwitterClient.swift in Sources */,
+				03950E8A1A9ADDDC00AAEC70 /* TweetPresenter.swift in Sources */,
 				036A27131A9590A900A88E98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
