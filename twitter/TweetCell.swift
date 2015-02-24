@@ -21,6 +21,13 @@ class TweetCell: UITableViewCell {
 
         photoView.layer.cornerRadius = 5
         photoView.clipsToBounds = true
+
+        tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -36,7 +43,7 @@ class TweetCell: UITableViewCell {
         photoView.setImageWithURL(tweet.authorPhotoUrl)
         timeAgoLabel.text = timeAgo(tweet.createdAt)
     }
-
+    
     func timeAgo(date: NSDate) -> String {
         var interval = -date.timeIntervalSinceNow
         var number = 0
