@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if let user = User.currentUser {
             println("Found a logged in user: \(user.name)")
-            setRootViewController("navigation-controller")
+//            setRootViewController("navigation-controller")
+            setRootViewController("hamburger-menu-controller")
         }
 
         return true
