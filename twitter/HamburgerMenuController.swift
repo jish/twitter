@@ -11,25 +11,16 @@ import UIKit
 class HamburgerMenuController: UIViewController {
 
     var panOffset: CGPoint!
+    var myNavigationController: NavigationController!
 
     @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(containerView.center)
-        containerView.center = CGPoint(x: view.center.x, y: view.center.y)
-        println(containerView.center)
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        
-
-        println(containerView.center)
-        containerView.center = CGPoint(x: view.center.x, y: view.center.y)
-        println(containerView.center)
-
-        super.viewWillAppear(animated)
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        myNavigationController = storyBoard.instantiateViewControllerWithIdentifier("navigation-controller") as NavigationController
+        displayViewController(myNavigationController)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +32,13 @@ class HamburgerMenuController: UIViewController {
         println("Timeline")
     }
 
+    @IBAction func onProfileTap(sender: UIButton) {
+        println("Profile")
+    }
+
     @IBAction func onLogoutTap(sender: UIButton) {
         println("Logout")
+        User.logout()
     }
 
     @IBAction func onPan(sender: UIPanGestureRecognizer) {
@@ -70,6 +66,13 @@ class HamburgerMenuController: UIViewController {
                 }, completion: { (success) in })
             panOffset = nil
         }
+    }
+
+    func displayViewController(vc: UIViewController) {
+        vc.view.frame = containerView.bounds
+        containerView.addSubview(vc.view)
+        addChildViewController(vc)
+        vc.didMoveToParentViewController(self)
     }
 
     /*

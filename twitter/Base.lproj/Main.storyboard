@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -16,26 +16,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n99-wn-df8">
-                                <rect key="frame" x="16" y="66" width="49" height="30"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onLogoutTap:" destination="wN6-9E-alz" eventType="touchUpInside" id="lVN-a0-akv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4m-1e-LkQ">
-                                <rect key="frame" x="16" y="28" width="58" height="30"/>
-                                <state key="normal" title="Timeline">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTimelineTap:" destination="wN6-9E-alz" eventType="touchUpInside" id="3q4-lb-KEW"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-M0-deP" userLabel="Hamburger Background">
+                                <rect key="frame" x="0.0" y="-5" width="320" height="573"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4m-1e-LkQ">
+                                        <rect key="frame" x="18" y="33" width="58" height="30"/>
+                                        <state key="normal" title="Timeline">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTimelineTap:" destination="wN6-9E-alz" eventType="touchUpInside" id="3q4-lb-KEW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n99-wn-df8">
+                                        <rect key="frame" x="18" y="109" width="49" height="30"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLogoutTap:" destination="wN6-9E-alz" eventType="touchUpInside" id="lVN-a0-akv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3W-O5-3oE">
+                                        <rect key="frame" x="18" y="71" width="44" height="30"/>
+                                        <state key="normal" title="Profile">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onProfileTap:" destination="wN6-9E-alz" eventType="touchUpInside" id="6xn-yC-OfR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPj-ua-sbL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="253" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -56,7 +74,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="625" y="-477"/>
+            <point key="canvasLocation" x="633" y="-477"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -84,11 +102,12 @@
                     </view>
                     <connections>
                         <segue destination="4uJ-NY-E8c" kind="modal" identifier="timeline-segue" id="zxj-SS-B2w"/>
+                        <segue destination="wN6-9E-alz" kind="modal" identifier="hamburger-menu-segue" id="lVQ-8i-Of4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.26666666666665" y="205.42666666666668"/>
+            <point key="canvasLocation" x="100" y="-100"/>
         </scene>
         <!--Timeline Controller-->
         <scene sceneID="9M1-kH-eXj">
@@ -182,24 +201,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHd-iB-xEc">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="zKy-SL-Y3q">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="11H-i9-Y8P">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Logout">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="onLogout:" destination="VG4-R1-ETc" eventType="touchUpInside" id="zFR-Km-lyo"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="1SX-eP-qUw">
                             <connections>
                                 <segue destination="CT0-YW-rJG" kind="push" identifier="compose-segue" id="gA5-0e-JJq"/>
@@ -373,7 +374,7 @@
         <!--Navigation Controller-->
         <scene sceneID="qKg-A0-oEn">
             <objects>
-                <navigationController storyboardIdentifier="navigation-controller" automaticallyAdjustsScrollViewInsets="NO" id="4uJ-NY-E8c" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation-controller" automaticallyAdjustsScrollViewInsets="NO" id="4uJ-NY-E8c" customClass="NavigationController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Fx-Ox-S9M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -401,6 +402,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TBx-Ik-MqY"/>
+        <segue reference="gA5-0e-JJq"/>
     </inferredMetricsTieBreakers>
 </document>

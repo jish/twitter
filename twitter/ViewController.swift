@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         TwitterClient.sharedInstance.login() { (user, error) in
             if let u = user {
                 println("Logged in user: \(u.name) (@\(u.screenName))")
-                self.performSegueWithIdentifier("timeline-segue", sender: self)
+                self.performSegueWithIdentifier("hamburger-menu-segue", sender: self)
             } else {
                 println("Error logging in: \(error)")
             }
