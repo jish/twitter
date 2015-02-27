@@ -36,6 +36,11 @@ class HamburgerMenuController: UIViewController {
 
     @IBAction func onProfileTap(sender: UIButton) {
         println("Profile")
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profileController = storyBoard.instantiateViewControllerWithIdentifier("profile-controller") as ProfileController
+
+        closeDrawer()
+        myNavigationController.pushViewController(profileController, animated: true)
     }
 
     @IBAction func onLogoutTap(sender: UIButton) {
