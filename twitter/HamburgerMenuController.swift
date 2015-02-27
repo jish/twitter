@@ -30,6 +30,8 @@ class HamburgerMenuController: UIViewController {
     
     @IBAction func onTimelineTap(sender: UIButton) {
         println("Timeline")
+        myNavigationController.popToRootViewControllerAnimated(true)
+        closeDrawer()
     }
 
     @IBAction func onProfileTap(sender: UIButton) {
@@ -53,17 +55,14 @@ class HamburgerMenuController: UIViewController {
             })
             println(panLocation)
         } else if sender.state == .Ended {
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
-                    let percent = panLocation.x / self.view.frame.width
-                    println(percent)
-                
-                    if percent < 0.6 {
-                        view.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
-                    } else {
-                        view.center = CGPoint(x: self.view.center.x + self.view.frame.width - 64, y: self.view.center.y)
-                    }
-                
-                }, completion: { (success) in })
+            let percent = panLocation.x / self.view.frame.width
+
+            if percent < 0.6 {
+                closeDrawer()
+            } else {
+                openDrawer()
+            }
+
             panOffset = nil
         }
     }
@@ -73,6 +72,18 @@ class HamburgerMenuController: UIViewController {
         containerView.addSubview(vc.view)
         addChildViewController(vc)
         vc.didMoveToParentViewController(self)
+    }
+
+    func closeDrawer() {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+            self.containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        }, completion: { (success) in })
+    }
+
+    func openDrawer() {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+            self.containerView.center = CGPoint(x: self.view.center.x + self.view.frame.width - 64, y: self.view.center.y)
+        }, completion: { (success) in })
     }
 
     /*
