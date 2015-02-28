@@ -10,6 +10,8 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
+    var user: User!
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
@@ -37,6 +39,8 @@ class TweetCell: UITableViewCell {
     }
 
     func hydrate(tweet: Tweet) {
+        user = tweet.user
+
         nameLabel.text = tweet.authorName
         handleLabel.text = "@\(tweet.authorHandle)"
         tweetLabel.text = tweet.text

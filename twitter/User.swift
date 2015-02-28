@@ -16,19 +16,19 @@ class User: NSObject {
     let name: String
     let screenName: String
     let profileImageUrl: NSURL
+    let bannerImageUrl: NSURL?
     let bio: String
 
-    init(name: String, screenName: String, profileImage: String, bio: String) {
-        self.name = name
-        self.screenName = screenName
-        self.profileImageUrl = NSURL(string: profileImage)!
-        self.bio = bio
-    }
-
     init(dict: NSDictionary) {
+        let profileImageString = (dict["profile_image_url_https"] as String).stringByReplacingOccurrencesOfString("_normal.png", withString: "_bigger.png")
+
+        if let bannerImageString = dict["profile_banner_url"] as? String {
+            bannerImageUrl = NSURL(string: bannerImageString)!
+        }
+
         name = dict["name"] as String
         screenName = dict["screen_name"] as String
-        profileImageUrl = NSURL(string: dict["profile_image_url_https"] as String)!
+        profileImageUrl = NSURL(string: profileImageString)!
         bio = dict["description"] as String
     }
 

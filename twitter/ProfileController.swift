@@ -12,9 +12,11 @@ class ProfileController: UIViewController {
 
     var user: User!
 
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-
     @IBOutlet weak var handleLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +31,8 @@ class ProfileController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         nameLabel.text = user.name
         handleLabel.text = "@\(user.screenName)"
+        bannerImageView.setImageWithURL(user.bannerImageUrl)
+        photoView.setImageWithURL(user.profileImageUrl)
     }
 
     /*
