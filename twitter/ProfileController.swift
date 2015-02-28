@@ -20,7 +20,11 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        photoView.layer.cornerRadius = 5
+        photoView.clipsToBounds = true
+        
+        photoView.layer.borderColor = UIColor.blackColor().CGColor
+        photoView.layer.borderWidth = 2
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +33,6 @@ class ProfileController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        println(user)
-
         nameLabel.text = user.name
         handleLabel.text = "@\(user.screenName)"
         bannerImageView.setImageWithURL(user.bannerImageUrl)
