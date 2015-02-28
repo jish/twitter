@@ -1,9 +1,13 @@
 
 #### How many hours did it take to complete?
 
-About 10 hours
+Phase1: About 10 hours
+
+Phase2: About 6 hours
 
 #### Stories
+
+##### Phase 1
 
 - [x] User can sign into Twitter using the OAuth 1.0a workflow
 - [x] User can view the latest 20 tweets from their timeline
@@ -20,9 +24,27 @@ About 10 hours
   - [x] Favorite the tweet
   - [x] Reply to the tweet
 
+##### Phase 2
+
+- [x] Add a hamburger menu
+  - [x] Dragging anywhere in the view should reveal the menu
+- [x] Create a profile page which contains:
+  - [x] User header view
+  - [x] Basic user stats
+    - [x] Number of tweets
+    - [x] Number of followers
+    - [x] Number following
+- [x] Tapping on an image in the home timeline brings up that users profile
+
 #### GIF Walkthrough
 
+Walthrough of initial functionality
+
 ![Twitter GIF Walkthrough](twitter.gif)
+
+Walkthrough of hamburger menu and profile page enhancement
+
+![Twitter GIF Walkthrough Hamburger Menu](twitter2.gif)
 
 #### Open source software used:
 
