@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol ProfileTapDelegate {
+    func onTappedPhoto(user: User)
+}
+
 class TweetCell: UITableViewCell {
 
     var user: User!
+    var delegate: ProfileTapDelegate!
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
@@ -39,35 +44,22 @@ class TweetCell: UITableViewCell {
     }
 
     func hydrate(tweet: Tweet) {
+        let presenter = TweetPresenter(tweet: tweet)
+
         user = tweet.user
 
         nameLabel.text = tweet.authorName
         handleLabel.text = "@\(tweet.authorHandle)"
         tweetLabel.text = tweet.text
         photoView.setImageWithURL(tweet.authorPhotoUrl)
-        timeAgoLabel.text = timeAgo(tweet.createdAt)
+        timeAgoLabel.text = presenter.timeAgo()
+
+        let gr = UITapGestureRecognizer(target: self, action: "onTapPhoto")
+        photoView.addGestureRecognizer(gr)
     }
-    
-    func timeAgo(date: NSDate) -> String {
-        var interval = -date.timeIntervalSinceNow
-        var number = 0
-        var label = ""
 
-        if interval < 60 * 60 {
-            number = Int(interval / 60)
-            label = "m"
-        } else if interval < 60 * 60 * 24 {
-            number = Int(interval / 60 / 60)
-            label = "h"
-        } else if interval < 60 * 60 * 24 * 7 {
-            number = Int(interval / 60 / 60 / 24)
-            label = "d"
-        } else {
-            number = Int(interval / 60 / 60 / 24 / 7)
-            label = "w"
-        }
-
-        let timeAgo = "\(number)\(label)"
-        return timeAgo
+    func onTapPhoto() {
+        println("onTapPhoto \(user)")
+        delegate.onTappedPhoto(user)
     }
 }

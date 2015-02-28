@@ -163,9 +163,6 @@
                                                         <constraint firstAttribute="height" constant="64" id="DJs-FK-M2s"/>
                                                         <constraint firstAttribute="width" constant="64" id="xAa-MV-ZiT"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="syz-8E-ngf" appends="YES" id="7WK-Wd-ifm"/>
-                                                    </connections>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -222,11 +219,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dw3-Zk-o5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="syz-8E-ngf" userLabel="Tap Profile Image Gesture">
-                    <connections>
-                        <action selector="onTapProfileImage:" destination="VG4-R1-ETc" id="NAD-2H-Ezz"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1017" y="202"/>
         </scene>
@@ -281,6 +273,7 @@
                             <constraint firstItem="cLW-KQ-5jb" firstAttribute="top" secondItem="Yhx-HB-sG2" secondAttribute="bottom" constant="2" id="tyK-3q-C0H"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="khB-3K-R2S"/>
                     <connections>
                         <outlet property="bannerImageView" destination="wOR-3m-dEs" id="1eQ-oE-saV"/>
                         <outlet property="handleLabel" destination="cLW-KQ-5jb" id="yBd-iT-ndj"/>
@@ -290,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hl2-xi-HWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="-477"/>
+            <point key="canvasLocation" x="1491" y="-527"/>
         </scene>
         <!--Compose Tweet-->
         <scene sceneID="foz-uw-Ltq">

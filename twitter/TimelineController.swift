@@ -10,7 +10,7 @@ import UIKit
 
 let hamburgerTapEvent = "hamburger_tap_event"
 
-class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate, ProfileTapDelegate {
 
     var tweets: [Tweet] = []
     var refreshControl: UIRefreshControl!
@@ -58,6 +58,7 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
         let tweet = tweets[indexPath.row]
 
         cell.hydrate(tweet)
+        cell.delegate = self
 
         return cell
     }
@@ -85,6 +86,13 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
+    func onTappedPhoto(user: User) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profileController = storyBoard.instantiateViewControllerWithIdentifier("profile-controller") as ProfileController
+        profileController.user = user
+        navigationController?.pushViewController(profileController, animated: true)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -96,14 +104,12 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
 
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let tweet = tweets[indexPath.row]
-
                 println("Tweet: \(tweet) \(tweet.authorName)")
 
                 let vc = segue.destinationViewController as TweetDetailController
                 vc.tweet = tweet
             }
         }
-        
     }
 
 }

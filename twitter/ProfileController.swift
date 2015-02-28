@@ -29,6 +29,8 @@ class ProfileController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        println(user)
+
         nameLabel.text = user.name
         handleLabel.text = "@\(user.screenName)"
         bannerImageView.setImageWithURL(user.bannerImageUrl)
