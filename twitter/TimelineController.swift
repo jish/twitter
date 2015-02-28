@@ -8,10 +8,13 @@
 
 import UIKit
 
+let hamburgerTapEvent = "hamburger_tap_event"
+
 class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tweets: [Tweet] = []
     var refreshControl: UIRefreshControl!
+    var delegate: HamburgerMenuController!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -33,6 +36,11 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func onHamburgerTap(sender: UIBarButtonItem) {
+        println("Hamburger tap")
+        NSNotificationCenter.defaultCenter().postNotificationName(hamburgerTapEvent, object: nil)
     }
 
     @IBAction func onLogout(sender: UIButton) {

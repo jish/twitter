@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-M0-deP" userLabel="Hamburger Background">
-                                <rect key="frame" x="0.0" y="-5" width="320" height="573"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4m-1e-LkQ">
-                                        <rect key="frame" x="18" y="33" width="58" height="30"/>
+                                        <rect key="frame" x="24" y="24" width="58" height="30"/>
                                         <state key="normal" title="Timeline">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n99-wn-df8">
-                                        <rect key="frame" x="18" y="109" width="49" height="30"/>
+                                        <rect key="frame" x="24" y="100" width="49" height="30"/>
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3W-O5-3oE">
-                                        <rect key="frame" x="18" y="71" width="44" height="30"/>
+                                        <rect key="frame" x="24" y="62" width="44" height="30"/>
                                         <state key="normal" title="Profile">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +53,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPj-ua-sbL">
-                                <rect key="frame" x="253" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="254" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -201,6 +201,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHd-iB-xEc">
+                        <barButtonItem key="leftBarButtonItem" title="☰" id="6D8-0j-BtM">
+                            <connections>
+                                <action selector="onHamburgerTap:" destination="VG4-R1-ETc" id="N9W-7G-EDM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="1SX-eP-qUw">
                             <connections>
                                 <segue destination="CT0-YW-rJG" kind="push" identifier="compose-segue" id="gA5-0e-JJq"/>
@@ -227,19 +232,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cf-vB-BQU">
-                                <rect key="frame" x="136" y="162" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@tenderlove" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLW-KQ-5jb">
+                                <rect key="frame" x="96" y="116" width="129" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Patterson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSc-Zm-ByO">
+                                <rect key="frame" x="47" y="145" width="226" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cLW-KQ-5jb" firstAttribute="top" secondItem="Aia-AV-2wD" secondAttribute="bottom" constant="96" id="DKD-ud-Juz"/>
+                            <constraint firstItem="MSc-Zm-ByO" firstAttribute="top" secondItem="cLW-KQ-5jb" secondAttribute="bottom" id="Gj5-E9-SNU"/>
+                            <constraint firstItem="cLW-KQ-5jb" firstAttribute="centerX" secondItem="MSc-Zm-ByO" secondAttribute="centerX" id="LWS-NG-9l5"/>
+                            <constraint firstAttribute="centerX" secondItem="cLW-KQ-5jb" secondAttribute="centerX" id="Oeg-7e-L0e"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="handleLabel" destination="cLW-KQ-5jb" id="yBd-iT-ndj"/>
+                        <outlet property="nameLabel" destination="MSc-Zm-ByO" id="4Ip-tn-lBm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hl2-xi-HWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-389"/>
+            <point key="canvasLocation" x="1036" y="-477"/>
         </scene>
         <!--Compose Tweet-->
         <scene sceneID="foz-uw-Ltq">

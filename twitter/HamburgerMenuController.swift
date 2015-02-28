@@ -12,6 +12,7 @@ class HamburgerMenuController: UIViewController {
 
     var panOffset: CGPoint!
     var myNavigationController: NavigationController!
+    var open: Bool = true
 
     @IBOutlet weak var containerView: UIView!
 
@@ -21,23 +22,39 @@ class HamburgerMenuController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         myNavigationController = storyBoard.instantiateViewControllerWithIdentifier("navigation-controller") as NavigationController
         displayViewController(myNavigationController)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onHamburgerTap", name: hamburgerTapEvent, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    override func viewDidAppear(animated: Bool) {
+        closeDrawer()
+    }
+
+    func onHamburgerTap() {
+        if open {
+            closeDrawer()
+        } else {
+            openDrawer()
+        }
+    }
+
     @IBAction func onTimelineTap(sender: UIButton) {
         println("Timeline")
         myNavigationController.popToRootViewControllerAnimated(true)
         closeDrawer()
     }
-
+    
     @IBAction func onProfileTap(sender: UIButton) {
         println("Profile")
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let profileController = storyBoard.instantiateViewControllerWithIdentifier("profile-controller") as ProfileController
+
+        profileController.user = User.currentUser
 
         closeDrawer()
         myNavigationController.pushViewController(profileController, animated: true)
@@ -80,15 +97,19 @@ class HamburgerMenuController: UIViewController {
     }
 
     func closeDrawer() {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
             self.containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
         }, completion: { (success) in })
+
+        open = false
     }
 
     func openDrawer() {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
             self.containerView.center = CGPoint(x: self.view.center.x + self.view.frame.width - 64, y: self.view.center.y)
         }, completion: { (success) in })
+
+        open = true
     }
 
     /*

@@ -10,6 +10,11 @@ import UIKit
 
 class ProfileController: UIViewController {
 
+    var user: User!
+
+    @IBOutlet weak var nameLabel: UILabel!
+
+    @IBOutlet weak var handleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +25,11 @@ class ProfileController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    override func viewWillAppear(animated: Bool) {
+        nameLabel.text = user.name
+        handleLabel.text = "@\(user.screenName)"
+    }
 
     /*
     // MARK: - Navigation
