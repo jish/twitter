@@ -18,6 +18,9 @@ class User: NSObject {
     let profileImageUrl: NSURL
     let bannerImageUrl: NSURL?
     let bio: String
+    let followers: Int
+    let following: Int
+    let numTweets: Int
 
     init(dict: NSDictionary) {
         let profileImageString = (dict["profile_image_url_https"] as String).stringByReplacingOccurrencesOfString("_normal.png", withString: "_bigger.png")
@@ -30,6 +33,9 @@ class User: NSObject {
         screenName = dict["screen_name"] as String
         profileImageUrl = NSURL(string: profileImageString)!
         bio = dict["description"] as String
+        followers = dict["followers_count"] as Int
+        following = dict["friends_count"] as Int
+        numTweets = dict["statuses_count"] as Int
     }
 
     class var currentUser: User? {

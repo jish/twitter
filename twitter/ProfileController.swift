@@ -16,6 +16,9 @@ class ProfileController: UIViewController {
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var tweetCountLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,9 @@ class ProfileController: UIViewController {
         handleLabel.text = "@\(user.screenName)"
         bannerImageView.setImageWithURL(user.bannerImageUrl)
         photoView.setImageWithURL(user.profileImageUrl)
+        followersLabel.text = String(user.followers)
+        followingLabel.text = String(user.following)
+        tweetCountLabel.text = String(user.numTweets)
     }
 
     /*
